@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Container, Main, Form } from './styles'
 import { Header } from '../../Components/Header'
-import { FiPlusCircle } from 'react-icons/fi'
 import { Task } from '../../Components/Task'
 import { DefaultTask } from '../../Components/DefaultTask'
+import { PlusCircle } from 'phosphor-react'
 
 export interface Task {
   title: string
@@ -63,7 +63,7 @@ export function Home({ TaskList }: HomeProps) {
           />
           <button type="button" onClick={handleAddTask}>
             Criar
-            <FiPlusCircle />
+            <PlusCircle size={18} />
           </button>
         </Form>
         <div>
