@@ -22,12 +22,18 @@ body, input, button, textarea{
     text-decoration:none;
   }
 
+  button:disabled{
+    opacity: 0.7;
+    background-color: ${({ theme }) => theme.COLORS.RED};
+    cursor: not-allowed;
+  }
+  
   button, a{
     cursor: pointer;
     transition: filter 0.2s;
   }
 
-  button:hover, a:hover{
+  button:not(:disabled):hover, a:not(:disabled):hover{
     filter:brightness(0.9);
   }
 

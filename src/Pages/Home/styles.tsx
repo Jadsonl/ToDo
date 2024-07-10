@@ -25,6 +25,7 @@ export const Form = styled.form`
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
+
   > input {
     width: 100%;
     background: ${({ theme }) => theme.COLORS.GRAY_500};
@@ -44,7 +45,8 @@ export const Form = styled.form`
     padding: 1rem;
     border-radius: 8px;
   }
-  button:hover {
+
+  button::not(:disabled):hover {
     background-color: ${({ theme }) => theme.COLORS.BLUE};
   }
 `

@@ -4,20 +4,22 @@ import { Trash } from 'phosphor-react'
 interface TaskProps {
   title: string
   isComplete: boolean
-  OnDeleteComment: (taks: string) => void
-  onTaskUpdate: (title: string, isComplete: boolean) => void
+  id: string
+  OnDeleteTask: (taks: string) => void
+  onTaskUpdate: (id: string, isComplete: boolean) => void
 }
 
-export function Task({ title, onTaskUpdate, OnDeleteComment }: TaskProps) {
+export function Task({ id, title, onTaskUpdate, OnDeleteTask }: TaskProps) {
   const [task, setTask] = useState(Boolean)
+
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked
     setTask(checked)
-    onTaskUpdate(title, checked) // Atualiza o estado da tarefa no componente pai (Home)
+    onTaskUpdate(id, checked) // Atualiza o estado da tarefa no componente pai (Home)
   }
 
   function handleDeleteComment() {
-    OnDeleteComment(title)
+    OnDeleteTask(id)
   }
 
   return (
