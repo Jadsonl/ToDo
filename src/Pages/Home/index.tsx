@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent, useState } from 'react'
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react'
 import { Container, Main, Form } from './styles'
 import { Header } from '../../Components/Header'
 import { Task } from '../../Components/Task'
@@ -19,6 +19,13 @@ export function Home({ TaskList }: HomeProps) {
   const [tasks, setTasks] = useState(TaskList)
   const [errorMessage, setErrorMessage] = useState('')
 
+  useEffect(() => {
+    // Carrega as tarefas salvas no localStorage ao iniciar
+    const savedTasksString = localStorage.getItem('tasks')
+    const savedTasks = savedTasksString ? JSON.parse(savedTasksString) : []
+    setTasks(savedTasks)
+  }, [])
+
   const handleInputChange = (event: InputEventeChange) => {
     setNewTask(event.target.value)
     if (errorMessage) {
@@ -35,6 +42,7 @@ export function Home({ TaskList }: HomeProps) {
       }
       setTasks([...tasks, newTaskItem])
       setNewTask('')
+      localStorage.setItem('tasks', JSON.stringify([...tasks, newTaskItem]))
     } else {
       alert('digite algo!')
     }
@@ -50,6 +58,7 @@ export function Home({ TaskList }: HomeProps) {
   const DeleteTask = (id: string) => {
     const filteredTasks = tasks.filter((task) => task.id !== id)
     setTasks(filteredTasks)
+    localStorage.setItem('tasks', JSON.stringify(filteredTasks))
   }
 
   function handleKeyDown(event: KeyboardEventInput) {
