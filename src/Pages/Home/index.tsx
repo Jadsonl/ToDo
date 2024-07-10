@@ -53,6 +53,7 @@ export function Home({ TaskList }: HomeProps) {
       task.id === id ? { ...task, isComplete } : task,
     )
     setTasks(updatedTaskList)
+    localStorage.setItem('tasks', JSON.stringify(updatedTaskList))
   }
 
   const DeleteTask = (id: string) => {

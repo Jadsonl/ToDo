@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { Container } from './styles'
 import { Trash } from 'phosphor-react'
+
 interface TaskProps {
   title: string
   isComplete: boolean
@@ -9,12 +9,15 @@ interface TaskProps {
   onTaskUpdate: (id: string, isComplete: boolean) => void
 }
 
-export function Task({ id, title, onTaskUpdate, OnDeleteTask }: TaskProps) {
-  const [task, setTask] = useState(Boolean)
-
+export function Task({
+  id,
+  title,
+  isComplete,
+  onTaskUpdate,
+  OnDeleteTask,
+}: TaskProps) {
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked
-    setTask(checked)
     onTaskUpdate(id, checked) // Atualiza o estado da tarefa no componente pai (Home)
   }
 
@@ -25,7 +28,7 @@ export function Task({ id, title, onTaskUpdate, OnDeleteTask }: TaskProps) {
   return (
     <Container>
       <label className="checkbox-container">
-        <input type="checkbox" onChange={handleChecked} checked={task} />
+        <input type="checkbox" onChange={handleChecked} checked={isComplete} />
         <span className="checkmark"></span>
         <p>{title}</p>
       </label>
