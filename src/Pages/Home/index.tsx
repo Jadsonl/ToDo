@@ -34,7 +34,7 @@ export function Home({ TaskList }: HomeProps) {
   }
 
   const handleAddTask = () => {
-    if (newTask !== '') {
+    if (newTask.trim() !== '') {
       const newTaskItem = {
         title: newTask,
         isComplete: false,
