@@ -15,3 +15,5 @@ Componente Padrão: Exibição de um componente padrão quando a lista está vaz
 - TypeScript: Superset de JavaScript que adiciona tipagem estática ao código.
 - styled-components: Biblioteca para estilização de componentes em React.
 - Phosphor Icons: Conjunto de ícones flexíveis e personalizáveis para React.
+
+<a href="https://to-do-jade-psi.vercel.app/" target="_blank">Abrir Projeto</a>
