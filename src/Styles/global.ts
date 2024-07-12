@@ -11,13 +11,18 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.COLORS.GRAY_600};
     color: ${({ theme }) => theme.COLORS.WHITE};
     -webkit-font-smoothing: antialiased;
-}
+  }
 
-body, input, button, textarea{
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  outline: none;
-}
+  body, input, button, textarea{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+  }
+  
+  :focus{
+    outline: none;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.BLUE};
+  }
+
   a {
     text-decoration:none;
   }
